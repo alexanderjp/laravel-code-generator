@@ -356,10 +356,10 @@ class Config
      */
     public static function getViewsPath()
     {
+        // Note: We use the config file to set the view path
         // $paths = config('view.paths', [0 => 'resources/views/flatlab']);
-
         // return Helpers::fixPathSeparator(Helpers::getPathWithSlash($paths[0]));
-
+        
         return self::getPathBaseValue('view_path');
     }
 
