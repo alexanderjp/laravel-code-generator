@@ -1,0 +1,7 @@
+                Column::name('[% field_name %]')
+                ->label('[% field_title %]')
+                ->filterable()
+                ->alignCenter()
+                ->unwrap(),
+
+

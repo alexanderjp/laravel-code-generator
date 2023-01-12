@@ -139,6 +139,15 @@ return [
      */
     'form_requests_path' => 'Http/Requests',
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | The default path of where the datatables will be generated into.
+    |--------------------------------------------------------------------------
+    |
+     */
+    'datatables_path' => 'Http/Livewire',
+
     /*
     |--------------------------------------------------------------------------
     | The default path of where the api-based controllers will be generated into.
@@ -449,6 +458,7 @@ return [
         'language-file-name' => true,
         'resource-file-name' => true,
         'table-name' => true,
+        'datatable-name' => true,
     ],
 
     /*
@@ -461,6 +471,17 @@ return [
     |
      */
     'controller_name_postfix' => 'Controller',
+
+        /*
+    |--------------------------------------------------------------------------
+    | A string to postfix the datatable name with.
+    |--------------------------------------------------------------------------
+    |
+    | If you don't like to post fix the datatable with "Datatable" you can
+    | set this value to an empty string. Or, you can set it to any other value.
+    |
+     */
+    'datatable_name_postfix' => 'Datatable',
 
     /*
     |--------------------------------------------------------------------------
@@ -967,4 +988,51 @@ return [
         'unsignedTinyInteger' => 'number',
         'uuid' => 'text',
     ],
+
+
+        /*
+    |--------------------------------------------------------------------------
+    | Eloquent method to column-type mapping.
+    |--------------------------------------------------------------------------
+    |
+    | This is the mapping used to convert database-column into html field
+    |
+     */
+    'eloquent_type_to_column_type' => [
+        'char' => 'text',
+        'date' => 'date',
+        'dateTime' => 'date',
+        'dateTimeTz' => 'date',
+        'bigIncrements' => 'number',
+        'bigInteger' => 'number',
+        'binary' => 'text',
+        'boolean' => 'text',
+        'decimal' => 'number',
+        'double' => 'number',
+        'enum' => 'text',
+        'float' => 'number',
+        'integer' => 'number',
+        'ipAddress' => 'text',
+        'json' => 'text',
+        'jsonb' => 'text',
+        'longText' => 'text',
+        'macAddress' => 'text',
+        'mediumInteger' => 'number',
+        'mediumText' => 'text',
+        'string' => 'text',
+        'text' => 'text',
+        'time' => 'time',
+        'timeTz' => 'time',
+        'tinyInteger' => 'number',
+        'timestamp' => 'date',
+        'timestampTz' => 'date',
+        'unsignedBigInteger' => 'number',
+        'unsignedInteger' => 'number',
+        'unsignedMediumInteger' => 'number',
+        'unsignedSmallInteger' => 'number',
+        'unsignedTinyInteger' => 'number',
+        'uuid' => 'text',
+    ],
+
+
 ];

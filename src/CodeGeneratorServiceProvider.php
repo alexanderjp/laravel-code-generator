@@ -42,6 +42,7 @@ class CodeGeneratorServiceProvider extends ServiceProvider
     {
         $commands =
             [
+            'CrestApps\CodeGenerator\Commands\Framework\CreateDatatableCommand',
             'CrestApps\CodeGenerator\Commands\Framework\CreateControllerCommand',
             'CrestApps\CodeGenerator\Commands\Framework\CreateModelCommand',
             'CrestApps\CodeGenerator\Commands\Framework\CreateLanguageCommand',

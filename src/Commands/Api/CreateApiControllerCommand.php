@@ -2,6 +2,7 @@
 
 namespace CrestApps\CodeGenerator\Commands\Api;
 
+use CrestApps\CodeGenerator\Commands\Bases\DatatableCommandBase;
 use CrestApps\CodeGenerator\Commands\Bases\ControllerCommandBase;
 use CrestApps\CodeGenerator\Models\Resource;
 use CrestApps\CodeGenerator\Support\Config;
@@ -30,6 +31,8 @@ class CreateApiControllerCommand extends ControllerCommandBase
                             {model-name : The model name that this controller will represent.}
                             {--controller-name= : The name of the controler.}
                             {--controller-directory= : The directory where the controller should be created under.}
+                            {--datatable-name= : The name of the datatable.}
+                            {--datatable-directory= : The directory where the datatable should be created under.}
                             {--model-directory= : The path where the model should be created under.}
                             {--resource-file= : The name of the resource-file to import from.}
                             {--routes-prefix=default-form : Prefix of the route group.}

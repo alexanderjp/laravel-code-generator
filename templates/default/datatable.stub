@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use Illuminate\Database\Eloquent\Builder;
+use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+use Mediconesystems\LivewireDatatables\Column;
+use Mediconesystems\LivewireDatatables\Action;
+use Mediconesystems\LivewireDatatables\DateColumn;
+use Mediconesystems\LivewireDatatables\TimeColumn;
+use Mediconesystems\LivewireDatatables\NumberColumn;
+use Mediconesystems\LivewireDatatables\BooleanColumn;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
+
+use App\Models\[% model_name_class %];
+
+class [% model_name_class %]Datatable extends LivewireDatatable
+{
+    public function builder()
+    {
+        {% comment %} $session_site = Site::find(session('site_id')); {% endcomment %}
+
+        $records = [% model_name_class %]::query();
+        return $records;
+
+    }
+
+
+    public function columns()
+    {
+        return [
+
+        [% datatable_columns_code %]
+
+            Column::callback(['[% primary_key %]'], function ([% primary_key %]){
+                    return  view('flatlab.[% model_name_singular_variable %].index-action', ['id' => $[% primary_key %]]);
+            })->label('Action'),
+
+
+        ];
+
+
+
+
+    }
+}

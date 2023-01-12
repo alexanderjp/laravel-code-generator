@@ -38,6 +38,7 @@ class CreateScaffoldCommand extends CreateScaffoldCommandBase
                             {--without-controller : Generate the resource without the controller file. }
                             {--without-form-request : Generate the resource without the form-request file. }
                             {--without-views : Generate the resource without the views. }
+                            {--without-datatables : Generate the resource without the datatables. }
                             {--without-timestamps : Prevent Eloquent from maintaining both created_at and the updated_at properties.}
                             {--with-migration : Prevent creating a migration for this resource.}
                             {--migration-class-name= : The name of the migration class.}
@@ -76,6 +77,7 @@ class CreateScaffoldCommand extends CreateScaffoldCommandBase
             ->createRoutes($input, $resource->getPrimaryField())
             ->createLanguage($input)
             ->createViews($input)
+            ->createDatatable($input)
             ->createMigration($input)
             ->info('Done!');
     }
@@ -106,6 +108,34 @@ class CreateScaffoldCommand extends CreateScaffoldCommandBase
 
         return $this;
     }
+
+    /**
+     * Executes the command that generates all the views.
+     *
+     * @param CrestApps\CodeGenerator\Models\ScaffoldInput $input
+     *
+     * @return $this
+     */
+    protected function createDatatable(ScaffoldInput $input)
+    {
+        if (!$this->option('without-datatable')) {
+            $this->call(
+                'create:views',
+                [
+                    'model-name' => $input->modelName,
+                    '--datatable-name' => $input->datatableName, 
+                    '--resource-file' => $input->resourceFile,
+                    '--datatable-directory' => $input->datatableDirectory, 
+                    '--language-filename' => $input->languageFileName,
+                    '--template-name' => $input->template,
+                    '--force' => $input->force,
+                ]
+            );
+        }
+
+        return $this;
+    }
+
 
     /**
      * Executes the command that generates the controller.

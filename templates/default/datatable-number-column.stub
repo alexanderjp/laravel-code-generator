@@ -1,0 +1,11 @@
+                NumberColumn::name('[% field_name %]')
+                ->label('[% field_title %]')
+                ->sortBy('[% field_name %]')
+                ->filterable(),
+
+
+
+
+
+
+

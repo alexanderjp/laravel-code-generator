@@ -196,6 +196,44 @@ abstract class ParserBase
         return $this;
     }
 
+
+    /**
+     * Get the Column type for a given field.
+     *
+     * @param CrestApps\CodeGenerator\Models\Field $field
+     * @param string $type
+     *
+     * @return string
+     */
+    protected function getColumnType($type)
+    {
+        $map = Config::getEloquentToColumnMap();
+
+        if (array_key_exists($type, $map)) {
+            return $map[$type];
+        }
+
+        return 'text';
+    }
+
+
+    /**
+     * Set the Column type for a given field.
+     *
+     * @param CrestApps\CodeGenerator\Models\Field $field
+     * @param string $type
+     *
+     * @return $this
+     */
+    protected function setColumnType(array &$fields)
+    {
+        foreach ($fields as $field) {
+            $field->columnType = $this->getColumnType($field->getEloquentDataMethod());
+        }
+
+        return $this;
+    }
+
     /**
      * Gets the model's name from a given table name
      *

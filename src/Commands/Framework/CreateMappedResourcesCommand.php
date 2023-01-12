@@ -37,6 +37,7 @@ class CreateMappedResourcesCommand extends Command
                             {--without-controller : Generate the resource without the controller file. }
                             {--without-form-request : Generate the resource without the form-request file. }
                             {--without-views : Generate the resource without the views. }
+                            {--without-datatables : Generate the resource without the datatables. }
                             {--connection-name= : A specific connection name.}
                             {--engine-name= : A specific engine name.}
                             {--layout-name= : This will extract the validation into a request form class.}

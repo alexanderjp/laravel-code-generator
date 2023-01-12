@@ -193,6 +193,8 @@ class CreateScaffoldCommandBase extends Command
         $input->languageFileName = trim($this->option('language-filename'));
         $input->table = trim($this->option('table-name'));
         $input->controllerName = trim($this->option('controller-name')) ?: Helpers::makeControllerName($input->modelName);
+        $input->datatableName = trim($this->option('datatable-name')) ?: Helpers::makeDatatableName($input->modelName);
+        $input->datatableDirectory = $this->option('datatable-directory');
         $input->perPage = intval($this->option('models-per-page'));
         $input->resourceFile = trim($this->option('resource-file')) ?: Helpers::makeJsonFileName($input->modelName);
         $input->fields = trim($this->option('fields'));

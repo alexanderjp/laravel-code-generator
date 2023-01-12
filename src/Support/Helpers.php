@@ -30,6 +30,25 @@ class Helpers
     }
 
     /**
+     * Makes a datatable name from a given model name
+     *
+     * @param string $datatableName
+     *
+     * @return string
+     */
+    public static function makeDatatableName($modelName)
+    {
+        $name = Str::properSnake($modelName, 'datatable-name');
+        $case = ucfirst(Str::camel($name));
+
+        if (!empty($postfix = Config::getDatatableNamePostFix())) {
+            return Str::postfix($case, $postfix);
+        }
+
+        return $case;
+    }
+
+    /**
      * Makes an api-resource name from a given model name
      *
      * @param string $modelName

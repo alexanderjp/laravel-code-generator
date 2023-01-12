@@ -288,6 +288,10 @@ class MysqlParser extends ParserBase
         // We need to set the html-type using the config::getEloquentToHtmlMap() setting
         $this->setHtmlType($fields);
 
+        // At this point we constructed the fields collection with the default Column-type
+        // We need to set the Column-type using the config::getEloquentToColumnMap() setting
+        $this->setColumnType($fields);
+
         return $fields;
     }
 

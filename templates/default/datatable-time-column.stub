@@ -1,0 +1,19 @@
+                TimeColumn::callback('[% field_name %]', function($datetime)
+                        {
+                                $time = substr($datetime, 11);
+                                return $time;
+                        }
+                )
+                ->label('[% field_title %]')
+                ->alignCenter()
+                ->unwrap(),
+
+
+
+
+
+                
+
+
+
+

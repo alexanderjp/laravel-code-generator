@@ -25,6 +25,9 @@ class CreateApiScaffoldCommand extends CreateScaffoldCommandBase
                             {--controller-name= : The name of the controler.}
                             {--controller-directory= : The directory where the controller should be created under. }
                             {--controller-extends=default-controller : The base controller to be extend.}
+                            {--datatable-name= : The name of the datatable.}
+                            {--datatable-directory= : The directory where the datatable should be created under. }
+                            {--datatable-extends=default-datatable : The base datatable to be extend.}
                             {--model-directory= : The path of the model.}
 							{--model-extends=default-model : The base model to be extend.}
                             {--form-request-directory= : The directory of the form-request.}
@@ -41,6 +44,7 @@ class CreateApiScaffoldCommand extends CreateScaffoldCommandBase
                             {--without-languages : Generate the resource without the language files. }
                             {--without-model : Generate the resource without the model file. }
                             {--without-controller : Generate the resource without the controller file. }
+                            {--without-datatable : Generate the resource without the datatable file. }
                             {--without-form-request : Generate the resource without the form-request file. }
                             {--without-timestamps : Prevent Eloquent from maintaining both created_at and the updated_at properties.}
                             {--with-migration : Prevent creating a migration for this resource.}
@@ -83,6 +87,7 @@ class CreateApiScaffoldCommand extends CreateScaffoldCommandBase
             ->printInfo('Scaffolding api-based resources for ' . $this->modelNamePlainEnglish($input->modelName) . '...')
             ->createModel($input)
             ->createController($input)
+            ->createDatatable($input)
             ->createRoutes($input, $resource->getPrimaryField())
             ->createLanguage($input)
             ->createMigration($input)

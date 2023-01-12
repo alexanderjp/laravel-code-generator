@@ -48,6 +48,16 @@ class Config
     }
 
     /**
+     * Gets the postfix value for a controller name
+     *
+     * @return string
+     */
+    public static function getDatatableNamePostFix()
+    {
+        return self::getStringBaseValue('datatable_name_postfix');
+    }
+
+    /**
      * Gets the postfix value for a api-resource name
      *
      * @return string
@@ -208,6 +218,17 @@ class Config
     }
 
     /**
+     * Gets the eloquent's method to html
+     *
+     * @return array
+     */
+    public static function getEloquentToColumnMap()
+    {
+        return self::getArrayBaseValue('eloquent_type_to_column_type');
+    }
+
+
+    /**
      * Gets the default value of the system path
      *
      * @param string $file
@@ -271,6 +292,11 @@ class Config
     public static function getControllersPath($file = '')
     {
         return self::getPathBaseValue('controllers_path', $file);
+    }
+
+    public static function getDatatablesPath($file = '')
+    {
+        return self::getPathBaseValue('datatables_path', $file);
     }
 
     /**
